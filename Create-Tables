@@ -1,0 +1,40 @@
+Staff/employees table
+CREATE TABLE Staff(
+staffNo varchar(255) NOT NULL,
+Fname varchar(255),
+Lname varchar(255),
+address varchar(255),
+salary int,
+teleNum varchar(255),
+PRIMARY KEY (staffNo)
+);
+Clients table
+CREATE TABLE Clients(
+clientNo varchar(255) NOT NULL,
+Fname varchar(255),
+Lname varchar(255),
+address varchar(255),
+teleNum varchar(255),
+PRIMARY KEY (clientNo)
+);
+Requirements table
+CREATE TABLE Requirements(
+requirementNo varchar(255) NOT NULL,
+basic varchar(255) NOT NULL,
+special varchar(255),
+clientNo varchar(255) NOT NULL,
+staffNo varchar(255) NOT NULL,
+PRIMARY KEY (requirementNo),
+FOREIGN KEY (clientNo) REFERENCES Clients(clientNo),
+FOREIGN KEY (staffNo) REFERENCES Staff(staffNo)
+);
+Equipment table
+CREATE TABLE Equipment(
+equipNo varchar(255) NOT NULL,
+equipType varchar(255),
+usage varchar(255),
+cost int,
+requirementNo varchar(255) NOT NULL,
+PRIMARY KEY (equipNo),
+FOREIGN KEY (requirementNo) REFERENCES Requirements(requirementNo)
+);
