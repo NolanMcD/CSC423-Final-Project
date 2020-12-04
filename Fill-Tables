@@ -1,0 +1,40 @@
+INSERT INTO Staff
+VALUES('A001','Nolan','McDermott','122 Johnson Pl',45000,'516-555-8918');
+INSERT INTO Staff
+VALUES('A002','Tom','Willis','128 Johnson Pl',45000,'516-555-8710');
+INSERT INTO Staff
+VALUES('A003','Tom','Johnson','56 Ford St',32000,'631-555-8330');
+INSERT INTO Staff
+VALUES('A004','Ty','Kelly','12 Palace St',46000,'516-555-9770');
+INSERT INTO Staff
+VALUES('A005','Francisco','Cabrera','28 Levee Ct',50000,'631-555-0101');
+INSERT INTO Clients
+VALUES('C001','Jake','McDermott','122 Johnson Pl','516-555-2318');
+INSERT INTO Clients
+VALUES('C002','Noah','Williams','68 City Pl','516-555-2999');
+INSERT INTO Clients
+VALUES('C003','Josh','Hamilton','82 Coquina Ave','516-555-4000');
+INSERT INTO Clients
+VALUES('C004','Willie','Aybar','4 Ray Way','516-555-6071');
+INSERT INTO Clients
+VALUES('C005','Tim','Anderson','72 Flipperton St','516-555-4902');
+INSERT INTO Requirements
+VALUES('R001', 'Monday 5pm-10pm', 'None', 'C002', 'A003');
+INSERT INTO Requirements
+VALUES('R002', 'Tuesday 5pm-11pm', 'None', 'C001', 'A002');
+INSERT INTO Requirements
+VALUES('R003', 'Monday 5pm-10pm, Tuesday 8am-12pm', 'Heavy equipment needed', 'C003', 'A004');
+INSERT INTO Requirements
+VALUES('R004', 'Everyday 5pm-10pm', 'Heavy equipment needed', 'C005', 'A001');
+INSERT INTO Requirements
+VALUES('R005', 'Sunday 8am-10pm', 'Extra window cleaners needed', 'C001', 'A005');
+INSERT INTO Equipment
+VALUES('E001', 'Large', 'Floor Cleaner', 45, 'R003');
+INSERT INTO Equipment
+VALUES('E002', 'Small', 'Window cleaner', 25, 'R005');
+INSERT INTO Equipment
+VALUES('E003', 'Medium', 'Light Floor Cleaner', 85, 'R002');
+INSERT INTO Equipment
+VALUES('E004', 'Small', 'Mop', 15, 'R001');
+INSERT INTO Equipment
+VALUES('E005', 'Large', 'Heavy Floor Cleaner', 10, 'R003');
