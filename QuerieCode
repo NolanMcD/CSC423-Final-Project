@@ -1,0 +1,57 @@
+import cx_Oracle
+import pandas as pd
+
+"""
+Some quick start guides:
+* cx_Oracle 8: https://cx-oracle.readthedocs.io/en/latest/user_guide/installation.html
+* pandas: https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html
+"""
+# TODO change path of Oracle Instant Client to yours
+cx_Oracle.init_oracle_client(lib_dir=r"C:\Users\boltj\OneDrive\Desktop\instantclient_19_9")
+
+# TODO change credentials
+# Connect as user "user" with password "mypass" to the "CSC423" service
+# running on lawtech.law.miami.edu
+connection = cx_Oracle.connect(
+    "nomccsc423", "-------", "lawtech.law.miami.edu/CSC423")
+cursor = connection.cursor()
+#quiering entire staff table
+cursor.execute("""
+    SELECT *
+    FROM Staff
+    """)
+#quiering staff with salary > 5000
+cursor.execute("""
+    SELECT salary
+    FROM Staff
+    WHERE salary > 5000;
+    """)
+#quiering requirments with no specials
+cursor.execute("""
+    SELECT requireNo
+    FROM Requirements
+    WHERE special LIKE '%None%';
+    """)
+#quiering requirments with no large equipment
+cursor.execute("""
+    SELECT r.requirementNo
+    FROM Requirements r, Equipment e 
+    WHERE r.requirementNo = e.requirementNo AND e.equipType LIKE '%Large%';
+    """)
+#quiering clients 516 area code
+cursor.execute("""
+    SELECT Fname, Lname
+    FROM clients
+    WHERE teleNum LIKE '%516%';
+    """)
+
+# get column names from cursor
+columns = [c[0] for c in cursor.description]
+# fetch data
+data = cursor.fetchall()
+# bring data into a pandas dataframe for easy data transformation
+df = pd.DataFrame(data, columns = columns)
+print(df) # examine
+print(df.columns)
+# print(df['FIRST_NAME']) # example to extract a column
+
